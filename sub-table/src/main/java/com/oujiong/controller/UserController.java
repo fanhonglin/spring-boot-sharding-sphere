@@ -42,7 +42,7 @@ public class UserController {
     /**
      * @Description: 批量保存用户
      */
-    @PostMapping("save-user")
+    @GetMapping("save-user")
     public Object saveUser() {
         return userService.insertForeach(userList);
     }
