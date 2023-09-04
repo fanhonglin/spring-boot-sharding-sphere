@@ -30,11 +30,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String insertForeach(List<User> userList) {
-        for (User user : userList) {
-            user.setCreateTime(new Date());
-            user.setUpdateTime(new Date());
-            user.setStatus(0);
-        }
+//        for (User user : userList) {
+//            user.setCreateTime(new Date());
+//            user.setUpdateTime(new Date());
+//            user.setStatus(0);
+//        }
         //批量插入数据
         userMapper.insertForeach(userList);
         return "保存成功";
