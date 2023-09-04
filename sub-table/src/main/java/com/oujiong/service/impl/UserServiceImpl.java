@@ -1,5 +1,6 @@
 package com.oujiong.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.oujiong.entity.User;
 import com.oujiong.mapper.UserMapper;
 import com.oujiong.service.UserService;
@@ -17,27 +18,10 @@ import java.util.List;
  * @date 2019/10/10 下午8:53
  */
 @Service
-public class UserServiceImpl implements UserService {
-
-    @Autowired
-    private UserMapper userMapper;
+public class UserServiceImpl extends ServiceImpl<UserMapper,User>  implements UserService {
 
     @Override
-    public  List<User> list() {
-        List<User> users = userMapper.selectAll();
-        return users;
+    public void saveAll(List<User> resourceInfoList) {
+        saveBatch(resourceInfoList);
     }
-
-    @Override
-    public String insertForeach(List<User> userList) {
-//        for (User user : userList) {
-//            user.setCreateTime(new Date());
-//            user.setUpdateTime(new Date());
-//            user.setStatus(0);
-//        }
-        //批量插入数据
-        userMapper.insertForeach(userList);
-        return "保存成功";
-    }
-
 }

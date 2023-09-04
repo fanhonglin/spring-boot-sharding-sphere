@@ -1,5 +1,6 @@
 package com.oujiong.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +15,12 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName("tab_user")
 public class User {
     /**
      * 主键
      */
+//    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
