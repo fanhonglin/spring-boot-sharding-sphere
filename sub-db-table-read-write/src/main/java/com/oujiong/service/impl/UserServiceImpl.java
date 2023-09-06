@@ -29,6 +29,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String insertForeach(List<User> userList) {
+
+
+
         for (User user : userList) {
             user.setCreateTime(new Date());
             user.setUpdateTime(new Date());
