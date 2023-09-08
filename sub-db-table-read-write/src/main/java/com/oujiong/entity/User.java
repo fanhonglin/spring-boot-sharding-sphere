@@ -1,6 +1,10 @@
 package com.oujiong.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -8,10 +12,15 @@ import java.util.Date;
  * user表
  */
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName("tab_user")
 public class User {
     /**
      * 主键
      */
+//    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -32,22 +41,25 @@ public class User {
     /**
      *
      */
-    private Date createTime;
+    @Builder.Default
+    private Date createTime = new Date();
 
     /**
      *
      */
-    private Date updateTime;
+    @Builder.Default
+    private Date updateTime = new Date();
 
     /**
      * 是否删除 1删除 0未删除
      */
-    private Integer status;
+    @Builder.Default
+    private Integer status = 0;
 
-    public User(Long id, String name, String sex, Integer age) {
-        this.id = id;
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
-    }
+//    public User(Long id,String name, String sex, Integer age) {
+//        this.id = id;
+//        this.name = name;
+//        this.sex = sex;
+//        this.age = age;
+//    }
 }
